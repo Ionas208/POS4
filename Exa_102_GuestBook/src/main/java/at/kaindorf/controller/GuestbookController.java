@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package at.kaindorf.webappintro.servlets;
+package at.kaindorf.controller;
 
-import bl.CurrencyConverter;
+import at.kaindorf.beans.GuestbookEntry;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +20,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 10jon
  */
-@WebServlet(name = "ConverterServlet", urlPatterns = {"/ConverterServlet"})
-public class ConverterServlet extends HttpServlet {
-
+@WebServlet(name = "GuestbookController", urlPatterns = {"/GuestbookController"})
+public class GuestbookController extends HttpServlet {
+    private List<GuestbookEntry> entries = new ArrayList<>();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -30,37 +32,9 @@ public class ConverterServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String val = request.getParameter("val");
-        String toCurrency = request.getParameter("to");
-        
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ConverterServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ConverterServlet at " + request.getContextPath() + "</h1>");
-            try{
-                float amount = Float.parseFloat(val);
-                int to = Integer.parseInt(toCurrency);
-                String currency = CurrencyConverter.getCurrencyNameFromIdx(to);
-                float result = CurrencyConverter.convertFromEuroToIdx(amount, to);
-                out.println(amount+" Euro are "+result+" "+currency);
-            }
-            catch(Exception ex){
-                out.println(ex);
-            }
-            out.println("</body>");
-            out.println("</html>");
-        }
+        request.getRequestDispatcher("guestbook.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -89,6 +63,24 @@ public class ConverterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        String nickname = request.getParameter("nickname");
+        if(nickname == null || nickname.trim().isEmpty()){
+            nickname = "unknown";
+        }
+        String email = request.getParameter("email");
+        if(email == null || email.trim().isEmpty()){
+            email = "unknown";
+        }
+        String comment = request.getParameter("comment");
+        if(comment == null || comment.trim().isEmpty()){
+            comment = "unknown";
+        }
+        
+        GuestbookEntry e = new GuestbookEntry(nickname, email, comment);
+        entries.add(e);
+        
+        request.setAttribute("entries", entries);
         processRequest(request, response);
     }
 

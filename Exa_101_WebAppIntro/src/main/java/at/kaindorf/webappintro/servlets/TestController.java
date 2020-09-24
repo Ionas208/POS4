@@ -5,7 +5,6 @@
  */
 package at.kaindorf.webappintro.servlets;
 
-import bl.CurrencyConverter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 10jon
  */
-@WebServlet(name = "ConverterServlet", urlPatterns = {"/ConverterServlet"})
-public class ConverterServlet extends HttpServlet {
+@WebServlet(name = "TestController", urlPatterns = {"/TestController"})
+public class TestController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,34 +29,18 @@ public class ConverterServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String val = request.getParameter("val");
-        String toCurrency = request.getParameter("to");
-        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ConverterServlet</title>");            
+            out.println("<title>Servlet TestController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ConverterServlet at " + request.getContextPath() + "</h1>");
-            try{
-                float amount = Float.parseFloat(val);
-                int to = Integer.parseInt(toCurrency);
-                String currency = CurrencyConverter.getCurrencyNameFromIdx(to);
-                float result = CurrencyConverter.convertFromEuroToIdx(amount, to);
-                out.println(amount+" Euro are "+result+" "+currency);
-            }
-            catch(Exception ex){
-                out.println(ex);
-            }
+            out.println("<h1>Servlet TestController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
