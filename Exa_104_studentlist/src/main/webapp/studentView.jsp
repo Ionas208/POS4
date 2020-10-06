@@ -29,8 +29,8 @@
                     out.println("<input id='filterLabel' type='text' name='filter' value='"+filter+"'>");
                 %>
                 
-                <button>Filter setzten</button> 
-                <button onclick="resetFilter()">Filter entfernen</button>
+                <button class="formButton">Filter setzten</button> 
+                <button class="formButton" onclick="resetFilter()">Filter entfernen</button>
                 <br>
                 <label>Schüler auswählen: </label>
                 <select onchange="submit();" name="catNr;class">
