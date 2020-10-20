@@ -1,0 +1,69 @@
+html{
+    background-color: #660316;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Pinyon Script', cursive;
+}
+
+h1>span{
+    margin-left: 20px;
+}
+
+thead{
+    border-bottom: 1px solid white;
+}
+
+table{
+    border-collapse: collapse;
+    padding: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+tr{
+    text-align: center;
+}
+
+
+tbody>tr>td{
+   padding: 5px 30px 5px 30px;
+   margin-right: 20px;
+   font-size: 85%;
+}
+
+tfoot>tr{
+    border-top: 1px solid white;
+}
+
+tfoot>tr>td{
+    padding: 5px 30px 5px 30px;
+}
+
+.alignLeft{
+    text-align: left;
+}
+
+.alignRight{
+    text-align: right;
+}
+
+body>div>span{
+    font-size: 85%;
+}
+
+body>div{
+    margin-bottom: 10px;
+}
+
+#sum{
+    border-bottom: 1px white double;
+}
+

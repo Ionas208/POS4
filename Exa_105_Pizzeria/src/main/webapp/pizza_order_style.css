@@ -1,0 +1,40 @@
+.pizza_text{
+    
+}
+
+.pizza_name{
+    font-size: 30px;
+}
+
+.pizza_description{
+    font-size: 15px;
+}
+
+table{
+    border-collapse: collapse;
+    padding: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+tr{
+    border-bottom: 1px solid white;
+    
+}
+
+td{
+   padding: 5px;
+}
+
+.number_input{
+    width: 30px;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+}
+
+form>div{
+    margin-left: 30px;
+}

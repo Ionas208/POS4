@@ -1,0 +1,66 @@
+html{
+    background-color: #660316;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Pinyon Script', cursive;
+}
+
+h1>span{
+    margin-left: 20px;
+}
+
+button{
+    border: 1px white solid;
+    background: none;
+    color: white;
+    font-size: 16px;
+    font-family: 'Libre Baskerville', serif;
+    padding: 5px;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: #771428;
+}
+
+button:focus{
+    outline: none;
+}
+
+input[type=text]{
+    border: 1px solid white;
+    background: none;
+    color: white;
+    font-size: 16px;
+    font-family: 'Libre Baskerville', serif;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input[type=text]:focus{
+    outline: none;
+}
+
+#language_selector{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border: 1px solid white;
+    font-size: 14px;
+    font-family: 'Libre Baskerville', serif;
+    padding: 2px;
+}
+
+.xerror{
+    color: white;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
