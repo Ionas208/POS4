@@ -4,6 +4,7 @@
     Author     : 10jon
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.Arrays"%>
 <%@page import="beans.Language"%>
 <%@page import="beans.LanguageSelect"%>
@@ -67,6 +68,11 @@
                         out.println("</tr>");
                     }
                 %>
+                <c:forEach var="p" items="${requestScope.pizzas}">
+                    <tr>
+                        <td><img width='150px' height='100px' src='${p.getImg_url()}'></td>
+                    </tr>
+                </c:forEach>
             </table>
             <div>
                 <label><%
