@@ -96,9 +96,5 @@
     </body>
 </html>
 <script>
-    function changeLanguage(){
-        let lang = document.getElementById('language_selector').value;
-        document.cookie = "lang="+lang+";"
-        location.reload();
-    }
+    ö
 </script>
