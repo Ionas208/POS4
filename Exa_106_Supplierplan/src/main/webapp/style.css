@@ -1,0 +1,8 @@
+.timetable{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.timetable>thead>th{
+    border: 1px solid black;
+}
