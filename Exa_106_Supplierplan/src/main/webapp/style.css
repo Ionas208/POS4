@@ -1,8 +1,66 @@
-.timetable{
-    border-collapse: collapse;
-    border: 1px solid black;
+body, hmtl{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Open Sans';
 }
 
-.timetable>thead>th{
-    border: 1px solid black;
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.timetable{
+    border-collapse: collapse;
+}
+
+.timetable>thead>tr>th, .timetable>tbody>tr>td{
+    text-align: center;
+        border-bottom: 3px solid white;
+}
+
+.timetable_headline{
+    padding: 10px;
+    font-size: 120%;
+    background-color: #252627;
+    color: white;
+}
+
+.timetable_lesson{
+    padding: 5px 15px 5px 15px;
+    background-color: #F9C22E;
+}
+
+.timetable_lesson_free{
+    background-color: #AAACB0;
+}
+
+.timetable_lesson_substitude{
+    background-color: #8A2BE2;
+    color: white;
+}
+
+.timetable_hour{
+    width: 50px;
+    height: 50px;
+    font-size: 120%;
+    background-color: #252627;
+    color: white;
+}
+
+.upper>h1{
+    text-align: center;
+    font-size: 250%;
+}
+
+.upper{
+    margin-bottom: 30px;
+}
+
+input{
+    padding: 5px;
+}
+
+#subject_error, #teachers_error, #other_error{
+    color: #BB0A21;
 }

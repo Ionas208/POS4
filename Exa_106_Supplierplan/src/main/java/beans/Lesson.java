@@ -5,6 +5,7 @@
  */
 package beans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,13 +22,31 @@ public class Lesson {
         this.teachers = teachers;
         this.substitude = substitude;
     }
+    
+    public Lesson(String line){
+        String[] parts = line.split(";");
+        String subject = parts[0];
+        if(subject.equals("-")){
+            subject = "";
+        }
+        List<String> teachers = new ArrayList<>();
+        String[] teacher_parts = parts[1].split(",");
+        for(int i = 0; i<teacher_parts.length; i++){
+            if(!teacher_parts[i].equals("-")){
+                teachers.add(teacher_parts[i]);
+            } 
+        }
+        this.subject = subject;
+        this.teachers = teachers;
+        this.substitude = false;
+    }
 
     public Lesson() {
     }
 
     @Override
     public String toString() {
-        return "Lesson{" + "subject=" + subject + ", teachers=" + teachers + ", substitude=" + substitude + '}';
+        return subject;
     }
 
     public String getSubject() {
@@ -54,6 +73,15 @@ public class Lesson {
         this.substitude = substitude;
     }
 
-    
+    public String getStyleClasses(){
+        String classes = "timetable_lesson ";
+        if(isSubstitude()){
+            classes += "timetable_lesson_substitude ";
+        }
+        if(subject.equals("")){
+            classes += "timetable_lesson_free";
+        }
+        return classes;
+    }
     
 }
