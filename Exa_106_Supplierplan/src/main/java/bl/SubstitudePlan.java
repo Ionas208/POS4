@@ -86,7 +86,7 @@ public class SubstitudePlan {
                 }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(SubstitudePlan.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("File not found");
         }
     }
 

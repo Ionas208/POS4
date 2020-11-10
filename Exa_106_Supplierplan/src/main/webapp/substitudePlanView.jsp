@@ -15,30 +15,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel = "stylesheet" type = "text/css" href = "style.css" />
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-        <script>
-            function validate(){
-                let subject = document.getElementById("subject").value;
-                let teachers = document.getElementById("teachers").value;
-                let return_val = true;
-
-                if(subject == ""){
-                    document.getElementById("subject_error").style.display = "inline";
-                    return_val = false;
-                }
-                else{
-                    document.getElementById("subject_error").style.display = "none";
-                }
-                
-                if(teachers == ""){
-                    document.getElementById("teachers_error").style.display = "inline";
-                    return_val = false;
-                }
-                else{
-                    document.getElementById("teachers_error").style.display = "none"
-                }
-                return return_val;
-            }
-        </script>
         <title>${timetable.getClassname()}</title>
     </head>
     <body>
@@ -129,3 +105,27 @@
         </div>
     </body>
 </html>
+<script>
+    function validate(){
+        let subject = document.getElementById("subject").value;
+        let teachers = document.getElementById("teachers").value;
+        let return_val = true;
+
+        if(subject == ""){
+            document.getElementById("subject_error").style.display = "inline";
+            return_val = false;
+        }
+        else{
+            document.getElementById("subject_error").style.display = "none";
+        }
+
+        if(teachers == ""){
+            document.getElementById("teachers_error").style.display = "inline";
+            return_val = false;
+        }
+        else{
+            document.getElementById("teachers_error").style.display = "none"
+        }
+        return return_val;
+    }
+</script>

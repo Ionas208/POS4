@@ -40,6 +40,7 @@ public class SubstitudeController extends HttpServlet {
         super.init(config);
         sp = new SubstitudePlan();
         String filepath = config.getServletContext().getRealPath("/res/timetable.csv");
+        System.out.println(filepath);
         sp.loadTimetable(filepath);
         config.getServletContext().setAttribute("timetable", sp);
     }
