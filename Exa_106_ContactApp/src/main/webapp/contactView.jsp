@@ -19,58 +19,63 @@
         <form method="POST" action="./ContactController">
             <h1>Contact List</h1>
             <div class="control_container">
-                <div class="filter_container">
-                    <table class="filter_table">
-                    <tr>
-                        <td>Filter by</td>
-                        <td>
-                            <select name="filterby">
-                                <option value="NONE"></option>
-                                <option value="NAME">Name</option>
-                                <option value="REGEX">Name Pattern</option>
-                                <option value="COMPANY">Company</option>
-                                <option value="GENDER">Gender</option>
-                            </select>
-                            :
+                <table style="height: 100%">
+                    <tr style="height: 100%">
+                        <td style="height: 100%">
+                            <fieldset class="filter_container">
+                                <legend>Filter</legend>
+                                <table class="filter_table">
+                                    <tr>
+                                        <td>Filter by</td>
+                                        <td>
+                                            <select name="filterby">
+                                                <option value="NONE"></option>
+                                                <option value="NAME">Name</option>
+                                                <option value="REGEX">Name Pattern</option>
+                                                <option value="COMPANY">Company</option>
+                                                <option value="GENDER">Gender</option>
+                                            </select>
+                                            
+                                        </td>
+                                        <td id="filter_value">
+                                            <input  type="text" name="filter" placeholder="Enter filter value" autocomplete="off"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
                         </td>
                         <td>
-                            <input type="text" name="filter" placeholder="Enter filter value" autocomplete="off"/>
+                            <fieldset class="sort_container">
+                            <legend>Sorting Options</legend>
+                            <table class="sort_table">
+                                <c:forEach begin="1" end="3" var="i">
+                                    <tr>
+                                        <td>Option ${i}</td>
+                                        <td>
+                                            <select name="option${i}">
+                                                <option value="NONE"></option>
+                                                <option value="FIRSTNAME">Firstname</option>
+                                                <option value="LASTNAME">Lastname</option>
+                                                <option value="COMPANY">Company</option>
+                                                <option value="AGE">Age</option>
+                                        </select>
+                                        </td>
+                                        <td>
+                                            <select name="option${i}_order">
+                                                <option value="ASC">ASC</i></option>
+                                                <option value="DESC">DESC</i></option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </table>
+                        </fieldset>
                         </td>
                     </tr>
                 </table>
-                </div>
                 
-                <div class="sort_container">
-                    <table class="sort_table">
-                        <thead>
-                            <tr>
-                                <th><b>Sorting Order</b></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach begin="1" end="3" var="i">
-                                <tr>
-                                    <td>Option ${i}</td>
-                                    <td>
-                                        <select name="option${i}">
-                                            <option value="NONE"></option>
-                                            <option value="FIRSTNAME">Firstname</option>
-                                            <option value="LASTNAME">Lastname</option>
-                                            <option value="COMPANY">Company</option>
-                                            <option value="AGE">Age</option>
-                                    </select>
-                                    </td>
-                                    <td>
-                                        <select name="option${i}_order">
-                                            <option value="ASC">ASC</i></option>
-                                            <option value="DESC">DESC</i></option>
-                                        </select>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
+                
+                
                 
                 <div class="submit_container"><input type="submit" value="Submit"/></div>
                 

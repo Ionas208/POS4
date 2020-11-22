@@ -23,7 +23,7 @@ form{
     height: 100%;
     width: 30%;
     background-color: #6CD4FF;
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 80px 0px 0px 80px;
     display: flex;
     align-items: center;
 }
@@ -33,7 +33,7 @@ form{
     width: 70%;
     background-color: #212529;
     color: white;
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 0px 10px 10px 0px;
 }
 
 .description_row{
@@ -57,14 +57,17 @@ form{
 .all_contacts{
     overflow-y: scroll;
     height: 500px;
-    width: 650px;
+    width: 670px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 10px solid #6CD4FF;
+    border-bottom: 10px solid #6CD4FF;
+    border-left: 10px solid #212529;
+    border-right: 10px solid #212529;
+    border-radius: 10px;
 }
 
 h1{
@@ -72,18 +75,54 @@ h1{
 }
 
 .control_container{
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
     padding: 10px;
-    width: 650px;
+    width: 670px;
     margin-bottom: 20px;
+    
+    border-top: 10px solid #6CD4FF;
+    border-bottom: 10px solid #6CD4FF;
+    border-left: 10px solid #212529;
+    border-right: 10px solid #212529;
+    border-radius: 10px;
 }
 
 .filter_container, .sort_container{
     margin-bottom: 20px;
+    border: 1px solid black;
+    height: 90%;
+}
+
+input[type=submit]{
+    background-color: #6CD4FF;
+    border: 3px solid #212529;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 .submit_container{
     display: flex;
     justify-content: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #D5D5D5;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6CD4FF;
+  border: 3px solid #212529;
+  border-radius: 10px;
 }
