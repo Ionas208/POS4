@@ -1,0 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package io;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import jdk.internal.org.jline.utils.PumpReader;
+import pojos.Contact;
+
+/**
+ *
+ * @author 10jon
+ */
+public class IO_Helper {
+    public static List<Contact> getContacts(String filepath){
+        List<Contact> contacts = null;
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            InputStream is = new FileInputStream(filepath);
+            JavaType contact_list = mapper.getTypeFactory().constructCollectionType(List.class, Contact.class);
+            contacts = mapper.readValue(is, contact_list);
+            
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        
+        return contacts;
+    }
+    
+}

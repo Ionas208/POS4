@@ -48,7 +48,6 @@ public class SubstitudePlan {
     }
     
     public List<Lesson> getLessonsForHour(int hour){
-        System.out.println(timetable);
         List<Lesson> lessons_for_hour = new ArrayList<>();
         for(Weekday wd: Weekday.values()){
             Lesson l = null;
