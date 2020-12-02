@@ -47,6 +47,7 @@ public class ContactDeserializer extends JsonDeserializer<Contact>{
         String name = companyNode.get("name").textValue();
         Stockmarket stockmarket = Stockmarket.valueOf(companyNode.get("stockmarket").textValue().toUpperCase());
         Company company = new Company(name, stockmarket);
+        company = Company.getCorrectCompany(company);
         
         return new Contact(id, firstname, lastname, email, gender, dateOfBirth, company);
     }

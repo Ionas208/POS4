@@ -21,19 +21,32 @@ form{
 
 .left{
     height: 100%;
-    width: 30%;
+    width: 35%;
     background-color: #6CD4FF;
     border-radius: 80px 0px 0px 80px;
     display: flex;
     align-items: center;
 }
 
+.left>div{
+    display: flex;
+    flex-direction: column;
+}
+
 .right{
     height: 100%;
-    width: 70%;
+    width: 65%;
     background-color: #212529;
     color: white;
     border-radius: 0px 10px 10px 0px;
+}
+
+input[type="checkbox"]{
+    zoom: 2;
+}
+
+.fa-star, .fa-trash{
+    font-size: 150%;
 }
 
 .description_row{
@@ -44,10 +57,6 @@ form{
 
 .contact_container>*{
     padding: 5px;
-}
-
-.contact_container>.left>input{
-    zoom: 2.5;
 }
 
 .error{

@@ -74,8 +74,8 @@
                     </tr>
                 </table>
                 
-                
-                
+                <label>Export</label>
+                <input type="checkbox" name="export">
                 
                 <div class="submit_container"><input type="submit" value="Submit"/></div>
                 
@@ -89,7 +89,34 @@
             <c:forEach items="${clm.getContacts()}" var="contact">
                 <div class="contact_container">
                     <div class="left">
-                        <input type="checkbox" name="${contact.getId()}" title="Check to delete with submit"/>
+                        <table>
+                            <tr>
+                                <td>
+                                    <i class="fas fa-star"></i>
+                                </td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${contact.isFavourite()}">
+                                            <input type="checkbox" name="${contact.getId()}_fav" title="Check to mark as favourite with submit" checked="checked"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <input type="checkbox" name="${contact.getId()}_fav" title="Check to mark as favourite with submit"/>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fas fa-trash"></i>
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="${contact.getId()}_del" title="Check to delete with submit"/>
+                                </td> 
+                            </tr>
+                        </table>
+                            
                         <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/1024px-OOjs_UI_icon_userAvatar.svg.png'
                              width='100px' height='100px'>
                     </div>

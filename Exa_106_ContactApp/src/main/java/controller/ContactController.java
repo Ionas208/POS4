@@ -26,6 +26,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pojos.Company;
 import pojos.Contact;
 
 /**
@@ -92,17 +93,30 @@ public class ContactController extends HttpServlet {
         
         try{
             List<Integer> ids_to_delete = new ArrayList<>();
+            List<Integer> ids_to_fav = new ArrayList<>();
             Enumeration<String> params = request.getParameterNames();
             while(params.hasMoreElements()){
                 String param = params.nextElement();
                 try{
-                    int num = Integer.parseInt(param);
-                    ids_to_delete.add(num);
+                    String[] parts = param.split("_");
+                    int num = Integer.parseInt(parts[0]);
+                    if(parts[1].equals("fav")){
+                        ids_to_fav.add(num);
+                    }
+                    else if(parts[1].equals("del")){
+                        ids_to_delete.add(num);
+                    }
                 }
                 catch(NumberFormatException ex){
                 }
             }
             clm.delete(ids_to_delete);
+            clm.favourite(ids_to_fav);
+            
+            String export = request.getParameter("export");
+            if(export != null && export.equals("on")){
+                IO_Helper.exportContacts(clm.getFavourites());
+            }
             
             Filter filterby = Filter.valueOf(request.getParameter("filterby"));
             String filter = request.getParameter("filter");

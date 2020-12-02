@@ -10,8 +10,12 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -23,6 +27,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import jdk.internal.org.jline.utils.PumpReader;
+import pojos.Company;
 import pojos.Contact;
 
 /**
@@ -37,12 +42,29 @@ public class IO_Helper {
             InputStream is = new FileInputStream(filepath);
             JavaType contact_list = mapper.getTypeFactory().constructCollectionType(List.class, Contact.class);
             contacts = mapper.readValue(is, contact_list);
-            
+            for (Contact contact : contacts) {
+                contact.getCompany().addContact(contact);
+            }
         } catch (IOException ex) {
             System.out.println(ex);
         }
-        
         return contacts;
+    }
+    
+    public static void exportContacts(List<Contact> contacts){
+        ObjectMapper mapper = new ObjectMapper();
+        String filepath = "C:\\Users\\10jon\\Desktop\\POS4\\Exa_106_ContactApp\\src\\main\\webapp\\res\\favourites.json";
+        try {
+            System.out.println(filepath);
+            String content = mapper.writeValueAsString(contacts);
+            File file = new File(filepath);
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
     
 }
