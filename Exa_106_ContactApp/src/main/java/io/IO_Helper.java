@@ -51,13 +51,11 @@ public class IO_Helper {
         return contacts;
     }
     
-    public static void exportContacts(List<Contact> contacts){
+    public static void exportContacts(List<Contact> contacts, String path){
         ObjectMapper mapper = new ObjectMapper();
-        String filepath = "C:\\Users\\10jon\\Desktop\\POS4\\Exa_106_ContactApp\\src\\main\\webapp\\res\\favourites.json";
         try {
-            System.out.println(filepath);
             String content = mapper.writeValueAsString(contacts);
-            File file = new File(filepath);
+            File file = new File(path);
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(content);

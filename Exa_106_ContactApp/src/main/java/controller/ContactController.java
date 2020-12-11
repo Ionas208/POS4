@@ -9,6 +9,7 @@ import beans.Filter;
 import beans.Sorter;
 import bl.ContactListModel;
 import io.IO_Helper;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -113,9 +114,10 @@ public class ContactController extends HttpServlet {
             clm.delete(ids_to_delete);
             clm.favourite(ids_to_fav);
             
+            
             String export = request.getParameter("export");
             if(export != null && export.equals("on")){
-                IO_Helper.exportContacts(clm.getFavourites());
+                IO_Helper.exportContacts(clm.getFavourites(), getServletContext().getRealPath("/res/favourites.json"));
             }
             
             Filter filterby = Filter.valueOf(request.getParameter("filterby"));
