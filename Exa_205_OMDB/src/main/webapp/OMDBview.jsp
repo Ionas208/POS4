@@ -74,13 +74,16 @@
                 
                 <div class="movies">
                     <table>
-                        <thead>
-                            <th></th>
-                            <th>Title</th>
-                            <th>Year</th>
-                            <th>Genres</th>
-                            <th>Type</th>
-                        </thead>
+                        <c:if test="${movies != null}">
+                            <thead>
+                                <th></th>
+                                <th>Title</th>
+                                <th>Year</th>
+                                <th>Genres</th>
+                                <th>Type</th>
+                            </thead>
+                        </c:if>
+                        
                         <tbody>
                             <c:forEach items="${movies}" var="movie">
                                 <tr>
@@ -95,19 +98,23 @@
                         </tbody>
                     </table>
                 </div>
-                
+                <c:if test="${movies != null}">
+                    <div class="pages">
+                        <select name="p" onchange="submit()">
+                            <option value="${page}">${page}</option>
+                            <c:forEach begin="1" end="${pages}" var="p">
+                                <c:choose>
+                                    <c:when test="${!(page == p)}">
+                                        <option value="${p}">${p}</option>
+                                    </c:when>
+                                </c:choose>            
+                            </c:forEach>
+                        </select>
+                    </div>
+                </c:if>
             </div>
         
-        <select name="p" onchange="submit()">
-            <option value="${page}">${page}</option>
-            <c:forEach begin="1" end="${pages}" var="p">
-                <c:choose>
-                    <c:when test="${!(page == p)}">
-                        <option value="${p}">${p}</option>
-                    </c:when>
-                </c:choose>            
-            </c:forEach>
-        </select>
+        
         </form>
     </body>
 </html>
