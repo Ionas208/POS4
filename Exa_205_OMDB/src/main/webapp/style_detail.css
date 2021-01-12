@@ -1,0 +1,80 @@
+html, body{
+    margin: 0;
+    font-family: 'Open Sans';
+}
+
+table{
+    border-collapse: collapse;
+}
+td{
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container{
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    background-color: #FF9700;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 175%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 125px;
+}
+
+h1{
+    margin: 0;
+    margin-left: 20px;
+}
+
+h2, h3{
+    margin: 0;
+}
+
+p{
+    margin: 0;
+}
+
+.details{
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    border: 3px solid black;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.text_details{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 20px;
+}
+
+.actors{
+    margin-top: 20px;
+}
+
+.plot{
+    
+}
+
+.data{
+    margin-top: 20px;
+}
+
+button{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+

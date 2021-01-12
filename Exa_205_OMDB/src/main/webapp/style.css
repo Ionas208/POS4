@@ -1,0 +1,61 @@
+html, body{
+    margin: 0;
+    font-family: 'Open Sans';
+}
+
+table{
+    border-collapse: collapse;
+}
+td{
+    border: 1px solid black;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.header{
+    background-color: #FF9700;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 175%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 125px;
+}
+
+h1{
+    margin: 0;
+    margin-left: 20px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.controls{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sort{
+    margin-bottom: 5px;
+}
+
+.genre{
+    margin-bottom: 5px;
+}
+
+.search{
+    margin-bottom: 5px;
+}
+
+th{
+    font-size: 150%;
+}
+
+.titles{
+    font-size: 120%;
+}
