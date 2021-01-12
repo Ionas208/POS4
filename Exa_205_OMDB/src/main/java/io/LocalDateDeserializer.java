@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Locale;
 
 /**
@@ -31,7 +32,11 @@ public class LocalDateDeserializer extends StdDeserializer<LocalDate> {
 
     @Override
     public LocalDate deserialize(JsonParser jp, DeserializationContext dc) throws IOException, JsonProcessingException {
-        return LocalDate.parse(dc.readValue(jp, String.class), DTF);
+        try{
+            return LocalDate.parse(dc.readValue(jp, String.class), DTF);
+        }catch(DateTimeParseException ex){
+            return null;
+        } 
     }
     
     
