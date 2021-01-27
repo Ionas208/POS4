@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<windows>
+    <window name="">
+        <xpos>760</xpos>
+        <ypos>370</ypos>
+        <width>400</width>
+        <height>300</height>
+    </window>
+    <window name="asd">
+        <xpos>760</xpos>
+        <ypos>370</ypos>
+        <width>400</width>
+        <height>300</height>
+    </window>
+</windows>
