@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translations>
+    <translation key="greeting">
+        <en>hello</en>
+        <de>Hallo</de>
+    </translation>
+    <translation key="search">
+        <en>Search</en>
+        <de>Suchen</de>
+    </translation>
+</translations>

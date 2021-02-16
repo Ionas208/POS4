@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <windows>
     <window name="">
-        <xpos>760</xpos>
-        <ypos>370</ypos>
+        <xpos>1029</xpos>
+        <ypos>348</ypos>
         <width>400</width>
         <height>300</height>
     </window>
@@ -11,5 +11,17 @@
         <ypos>370</ypos>
         <width>400</width>
         <height>300</height>
+    </window>
+    <window name="asdf">
+        <xpos>192</xpos>
+        <ypos>298</ypos>
+        <width>483</width>
+        <height>300</height>
+    </window>
+    <window name="l">
+        <xpos>61</xpos>
+        <ypos>957</ypos>
+        <width>400</width>
+        <height>39</height>
     </window>
 </windows>
