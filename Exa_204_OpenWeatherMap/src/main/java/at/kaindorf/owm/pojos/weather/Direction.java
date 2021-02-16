@@ -5,8 +5,6 @@
  */
 package at.kaindorf.owm.pojos.weather;
 
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -22,21 +20,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Sun {
+public class Direction {
     @XmlAttribute
-    private String rise;
+    private String value;
     @XmlAttribute
-    private String set;
-    
-    public String getRiseFormatted(){
-        String rise = this.rise.split("T")[1];
-        String[] parts = rise.split(":");
-        return parts[0]+":"+parts[1];
-    }
-    
-    public String getSetFormatted(){
-        String set = this.set.split("T")[1];
-        String[] parts = set.split(":");
-        return parts[0]+":"+parts[1];
-    }
+    private String code;
+    @XmlAttribute
+    private String name;
 }

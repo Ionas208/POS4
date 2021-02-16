@@ -29,4 +29,8 @@ public class Temperature {
     private String max;
     @XmlAttribute
     private String unit;
+    
+    public long getRoundedTemperature(){
+        return Math.round(Double.parseDouble(value));
+    }
 }

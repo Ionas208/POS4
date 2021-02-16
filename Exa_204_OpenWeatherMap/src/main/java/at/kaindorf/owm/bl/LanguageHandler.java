@@ -7,6 +7,8 @@ package at.kaindorf.owm.bl;
 
 import at.kaindorf.owm.beans.Language;
 import at.kaindorf.owm.pojos.translation.Translation;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LanguageHandler {
     public static Language getLanguage(HttpServletRequest request, HttpServletResponse response){
-        Cookie[] cookies = request.getCookies();
+        Cookie[] cookie_array = request.getCookies();
+        List<Cookie> cookies = cookie_array == null ? new ArrayList<>() : Arrays.asList(cookie_array);
         for (Cookie c : cookies) {
             if(c.getName().equals("lang")){
                 return Language.valueOf(c.getValue().toUpperCase());

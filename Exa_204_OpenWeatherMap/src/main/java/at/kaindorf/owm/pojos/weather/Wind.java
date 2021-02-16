@@ -21,4 +21,5 @@ import lombok.NoArgsConstructor;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Wind {
     private Speed speed;
+    private Direction direction;
 }

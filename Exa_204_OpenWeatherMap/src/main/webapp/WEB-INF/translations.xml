@@ -1,11 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <translations>
-    <translation key="greeting">
-        <en>hello</en>
-        <de>Hallo</de>
+    <translation key="city">
+        <en>City</en>
+        <de>Stadt</de>
     </translation>
-    <translation key="search">
-        <en>Search</en>
-        <de>Suchen</de>
+    <translation key="country">
+        <en>Country</en>
+        <de>Land</de>
+    </translation>
+    <translation key="sunrise">
+        <en>Sunrise</en>
+        <de>Sonnenaufgang</de>
+    </translation>
+    <translation key="sunset">
+        <en>Sunset</en>
+        <de>Sonnenuntergang</de>
+    </translation>
+    <translation key="temperature">
+        <en>Temperature</en>
+        <de>Temperatur</de>
+    </translation>
+    <translation key="wind">
+        <en>Wind</en>
+        <de>Wind</de>
+    </translation>
+    <translation key="speed">
+        <en>Speed</en>
+        <de>Geschwindigkeit</de>
+    </translation>
+    <translation key="direction">
+        <en>Direction</en>
+        <de>Richtung</de>
+    </translation>
+    <translation key="atmos">
+        <en>Atmospheric Data</en>
+        <de>Atmosphärische Daten</de>
+    </translation>
+    <translation key="humidity">
+        <en>Humidity</en>
+        <de>Luftfeuchtigkeit</de>
+    </translation>
+    <translation key="pressure">
+        <en>Pressure</en>
+        <de>Luftdruck</de>
+    </translation>
+    <translation key="value">
+        <en>Value</en>
+        <de>Wert</de>
     </translation>
 </translations>
