@@ -28,6 +28,11 @@ html, body{
     align-items: center;
 }
 
+#logo{
+    color: white;
+    font-size: 250%;
+}
+
 .tdDescriptor, .tdValue{
     width: 150px;
 }

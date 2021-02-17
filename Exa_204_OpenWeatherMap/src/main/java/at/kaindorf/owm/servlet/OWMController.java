@@ -19,6 +19,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.DataBindingException;
+import javax.xml.bind.UnmarshalException;
 
 /**
  *
@@ -57,8 +59,11 @@ public class OWMController extends HttpServlet {
         setLanguage(request, response);
         String search = request.getParameter("search");
         Language l = (Language)request.getAttribute("language");
-        Current c = RequestHandler.getCurrentWeather(search, l);
-        request.setAttribute("current_weather", c);
+        try{
+            Current c = RequestHandler.getCurrentWeather(search, l);
+            request.setAttribute("current_weather", c);
+        }catch(DataBindingException ex){
+        }
         processRequest(request, response);
     }
     
