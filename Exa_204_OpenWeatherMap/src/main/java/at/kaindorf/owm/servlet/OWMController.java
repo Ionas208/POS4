@@ -58,6 +58,7 @@ public class OWMController extends HttpServlet {
             throws ServletException, IOException {
         setLanguage(request, response);
         String search = request.getParameter("search");
+        search = search.replace(" ", "%20");
         Language l = (Language)request.getAttribute("language");
         try{
             Current c = RequestHandler.getCurrentWeather(search, l);
