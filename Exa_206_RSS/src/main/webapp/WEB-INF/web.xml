@@ -10,7 +10,7 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>
-            MarketController
+            RSSServlet
         </welcome-file>
     </welcome-file-list>
 </web-app>

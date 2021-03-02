@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package at.kaindorf.plf_uebung.beans;
+package at.kaindorf.rss.pojos;
 
-import java.util.List;
+import java.time.LocalDateTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,12 +18,16 @@ import lombok.NoArgsConstructor;
  *
  * @author 10jon
  */
-@XmlRootElement(name="market")
-@XmlAccessorType(XmlAccessType.FIELD)
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class Market {
-    @XmlElement(name="product")
-    private List<Product> products;
+@NoArgsConstructor
+@XmlRootElement(name="item")
+@XmlAccessorType (XmlAccessType.FIELD)
+public class Item {
+    private String guid;
+    private String link;
+    private String title;
+    private String description;
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    private LocalDateTime pubDate;
 }
