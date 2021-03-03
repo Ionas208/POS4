@@ -44,11 +44,12 @@ public class RSSServlet extends HttpServlet {
         if(channels == null){
             channels = new ArrayList<>();
         }
+        
         if(rss != null){
             Channel c = XMLHandler.getChannel(rss);
             channels.add(c);
         }
-        
+        System.out.println(channels);
         request.getSession().setAttribute("channels", channels);
         processRequest(request, response);
     }

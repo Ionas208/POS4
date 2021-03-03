@@ -23,7 +23,7 @@ public class XMLHandler {
     }
     public static void main(String[] args) {
         try {
-            System.out.println(XMLHandler.getChannel("https://www.derstandard.at/rss"));
+            System.out.println(XMLHandler.getChannel("https://www.derstandard.at/rss").getItems().get(0).getPubDate());
         } catch (MalformedURLException ex) {
             Logger.getLogger(XMLHandler.class.getName()).log(Level.SEVERE, null, ex);
         }

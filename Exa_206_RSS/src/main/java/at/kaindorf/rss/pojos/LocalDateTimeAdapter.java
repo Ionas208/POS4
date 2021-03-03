@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
  */
 public class LocalDateTimeAdapter extends XmlAdapter<String, LocalDateTime>{
 
-    private DateTimeFormatter DTF = DateTimeFormatter.ofPattern("E, dd MMM yyyy hh:mm:ss");
+    private DateTimeFormatter DTF = DateTimeFormatter.RFC_1123_DATE_TIME;
     
     @Override
     public LocalDateTime unmarshal(String vt) throws Exception {
