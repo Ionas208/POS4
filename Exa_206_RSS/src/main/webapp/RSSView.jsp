@@ -14,6 +14,8 @@
         <title>RSS</title>
         <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/dd041cd8d6.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     </head>
     <body>
         <h1>RSS</h1>
@@ -23,25 +25,44 @@
                     <option value="${channel.url}">${channel.title}</option>
                 </c:forEach>
             </select>
-            <input type="submit" value="add feed">
-        </form>
-        <form action="./RSSServlet" method="POST">
-            <input type="text" name="rss">
-            <input type="submit" value="add feed">
+            <input type="submit" value="subscribe">
         </form>
     <c:forEach items="${channels}" var="channel">
-        <h2>${channel.title}</h2>
+        <div type="button" class="collapsible">${channel.title}</div>
+        <div class="content">
         <c:forEach items="${channel.items}" var="item">
-            <button type="button" class="collapsible"><a href="${item.link}">${item.title}</a></button>
-            <c:choose>
-                <c:when test="${item.read}">
-                
-                </c:when>
-            </c:choose>
-            <div class="content">
-                ${item.description}
+            <a href="${item.link}">
+            <div class="article">
+                <div class="article-image">
+                    <img src="${item.content.url}">
+                </div>
+                <div class="article-text">
+                    <div class="article-headline">
+                        <h3>${item.title}</h3>
+                    </div> 
+                    <div class="article-description">
+                        ${item.getDescriptionWithoutImage()}
+                    </div>
+                </div>
+                <div class="article-read">
+                    <form action="./RSSServlet" method="POST">
+                        <button onclick="submit();">
+                            <input type="text" hidden name="read" value="${item.guid}">
+                            <c:choose>
+                                <c:when test="${item.read}">
+                                    <i class="fas fa-bookmark"></i>
+                                </c:when>
+                                <c:otherwise>
+                                    <i class="far fa-bookmark"></i>
+                                </c:otherwise>
+                            </c:choose>
+                        </button>
+                    </form>
+                </div>
             </div>
+            </a>
         </c:forEach>
+        </div>
     </c:forEach>
     </body>
 </html>

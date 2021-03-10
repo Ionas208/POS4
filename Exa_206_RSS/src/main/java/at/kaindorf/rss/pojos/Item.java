@@ -35,4 +35,12 @@ public class Item {
     private Content content;
     @XmlTransient
     private boolean read = false;
+    
+    public String getDescriptionWithoutImage(){
+        try{
+            return description.split("<img.*>")[1];
+        }catch(ArrayIndexOutOfBoundsException ex){
+            return "";
+        }
+    }
 }

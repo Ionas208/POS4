@@ -2,6 +2,7 @@ package at.kaindorf.rss.controller;
 
 import at.kaindorf.rss.io.XMLHandler;
 import at.kaindorf.rss.pojos.Channel;
+import at.kaindorf.rss.pojos.Item;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -78,8 +79,22 @@ public class RSSServlet extends HttpServlet {
             Channel c = XMLHandler.getChannel(rss);
             channels.add(c);
         }
-        System.out.println(channels);
+        
+        String read_guid = request.getParameter("read");
+        setItemRead(read_guid, channels);
+        
         request.getSession().setAttribute("channels", channels);
         processRequest(request, response);
+    }
+    
+    private void setItemRead(String guid, List<Channel> channels){
+        for (Channel channel : channels) {
+            for (Item i : channel.getItems()) {
+                if(i.getGuid().equals(guid)){
+                    i.setRead(!i.isRead());
+                    return;
+                }
+            }
+        }
     }
 }
