@@ -13,9 +13,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>RSS</title>
         <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/dd041cd8d6.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <h1>RSS</h1>
+        <form action="./RSSServlet" method="POST">
+            <select name="rss">
+                <c:forEach items="${default_channels}" var="channel">
+                    <option value="${channel.url}">${channel.title}</option>
+                </c:forEach>
+            </select>
+            <input type="submit" value="add feed">
+        </form>
         <form action="./RSSServlet" method="POST">
             <input type="text" name="rss">
             <input type="submit" value="add feed">
@@ -24,6 +33,11 @@
         <h2>${channel.title}</h2>
         <c:forEach items="${channel.items}" var="item">
             <button type="button" class="collapsible"><a href="${item.link}">${item.title}</a></button>
+            <c:choose>
+                <c:when test="${item.read}">
+                
+                </c:when>
+            </c:choose>
             <div class="content">
                 ${item.description}
             </div>

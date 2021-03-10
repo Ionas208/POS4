@@ -19,7 +19,9 @@ import javax.xml.bind.JAXB;
  */
 public class XMLHandler {
     public static Channel getChannel(String url) throws MalformedURLException{
-        return JAXB.unmarshal(new URL(url), RSS.class).getChannel();
+        Channel c = JAXB.unmarshal(new URL(url), RSS.class).getChannel();
+        c.setUrl(url);
+        return c;
     }
     public static void main(String[] args) {
         try {
