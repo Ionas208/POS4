@@ -28,19 +28,6 @@
     width: 80%;
 }
 
-.collapsible:after {
-  content: '\02795';
-  font-size: 13px;
-  color: black;
-  float: right;
-  margin-left: 5px;
-}
-
-.active:after {
-  content: "\2796";
-}
-
-
 body, html{
     margin: 0;
     font-family: 'Open Sans';
@@ -80,17 +67,26 @@ body, html{
     margin-bottom: 10px;
 }
 
-.article-read:hover{
+.article-read:hover, .article-hide:hover{
     background: #D8D8D8;
+    cursor: pointer;
 }
 
-.article-read>form>button>i{
-    font-size: 150%;
+.article-read>form>button>i, .article-hide>form>button>i{
+    font-size: 120%;
 }
 
-.article-read>form>button{
+.article-read>form>button, .article-hide>form>button{
     background: none;
     border: none;
+}
+
+.article-hide{
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    padding: 3px;
+    border-radius: 20%;
 }
 
 a{
@@ -101,3 +97,26 @@ a{
     color: inherit;
     text-decoration: inherit;
 }
+
+.input{
+    padding: 10px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.error{
+    color: red;
+    font-size: 120%;
+    margin-bottom: 20px;
+}
+
+.channel-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.channel-unsubscribe{
+    cursor: pointer;
+}
+

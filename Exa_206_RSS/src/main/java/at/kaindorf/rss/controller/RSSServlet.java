@@ -77,12 +77,23 @@ public class RSSServlet extends HttpServlet {
         
         if(rss != null){
             Channel c = XMLHandler.getChannel(rss);
-            channels.add(c);
+            if(!channels.contains(c)){
+                channels.add(c);
+            }
+            else{
+                request.setAttribute("error", "Already subscribed to feed!");
+            }
         }
         
         String read_guid = request.getParameter("read");
         setItemRead(read_guid, channels);
         
+        String hide_guid = request.getParameter("hide");
+        hideItem(hide_guid, channels);
+        
+        String unsubscribe_link = request.getParameter("unsubscribe");
+        unsubscribe(unsubscribe_link, channels);
+                
         request.getSession().setAttribute("channels", channels);
         processRequest(request, response);
     }
@@ -96,5 +107,15 @@ public class RSSServlet extends HttpServlet {
                 }
             }
         }
+    }
+    
+    private void hideItem(String guid, List<Channel> channels){
+        for (Channel channel : channels) {
+            channel.getItems().removeIf(i -> i.getGuid().equals(guid));
+        }
+    }
+    
+    private void unsubscribe(String link, List<Channel> channels){
+        channels.removeIf(c -> c.getLink().equals(link));
     }
 }

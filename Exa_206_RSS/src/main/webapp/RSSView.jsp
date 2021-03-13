@@ -11,24 +11,43 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>RSS</title>
+        <title>RSS Feed Reader</title>
         <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/dd041cd8d6.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>RSS</h1>
-        <form action="./RSSServlet" method="POST">
-            <select name="rss">
-                <c:forEach items="${default_channels}" var="channel">
-                    <option value="${channel.url}">${channel.title}</option>
-                </c:forEach>
-            </select>
-            <input type="submit" value="subscribe">
-        </form>
+        <h1>RSS Feed Reader</h1>
+        <div class="input">
+            <form action="./RSSServlet" method="POST">
+                <select name="rss">
+                    <c:forEach items="${default_channels}" var="channel">
+                        <option value="${channel.url}">${channel.title}</option>
+                    </c:forEach>
+                </select>
+                <input type="submit" value="subscribe">
+            </form>
+        </div>
+        <c:if test="${error != null}">
+            <div class="error">
+                ${error}
+            </div>
+        </c:if>
     <c:forEach items="${channels}" var="channel">
-        <div type="button" class="collapsible">${channel.title}</div>
+        <div type="button" class="collapsible channel-head">
+            <div class="channel-headline">
+                ${channel.title}
+            </div>
+            <div class="channel-unsubscribe">
+                <form action="./RSSServlet" method="POST">
+                    <input type="text" hidden name="unsubscribe" value="${channel.link}">
+                    <input type="submit" value="unsubscribe">
+                </form>
+            </div>
+            
+            
+        </div>
         <div class="content">
         <c:forEach items="${channel.items}" var="item">
             <a href="${item.link}">
@@ -56,6 +75,14 @@
                                     <i class="far fa-bookmark"></i>
                                 </c:otherwise>
                             </c:choose>
+                        </button>
+                    </form>
+                </div>
+                <div class="article-hide">
+                    <form action="./RSSServlet" method="POST">
+                        <button onclick="submit();">
+                            <input type="text" hidden name="hide" value="${item.guid}">
+                            <i class="far fa-eye-slash"></i>
                         </button>
                     </form>
                 </div>
